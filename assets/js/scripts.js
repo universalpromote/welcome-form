@@ -159,27 +159,6 @@ $('.unip-form form input[type="text"], .unip-form form input[type="email"]').on(
     $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
 });
 
-$(function(){
-    $(".f1").submit(function(e){
-        e.preventDefault();
-        var href = $(this).attr("action");
-        $.ajax({
-            type: "POST",
-            url: href,
-            data: new FormData(this),
-            dataType: "json",
-            processData: false,
-            contentType: false,
-            success: function(response){
-                if(response.status == "success"){
-                    alert("We received your submission, thank you!");
-                }else{
-                    alert("An error occured.");
-                }
-            }
-        });
-    });
-});
 	$(document).ready( function() {
 	
 	// Set input value on change and create fileselect event
