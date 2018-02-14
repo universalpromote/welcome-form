@@ -1,8 +1,9 @@
-
 function scroll_to_class(element_class, removed_height) {
 	var scroll_to = $(element_class).offset().top - removed_height;
-	if($(window).scrollTop() != scroll_to) {
-		$('html, body').stop().animate({scrollTop: scroll_to}, 0);
+	if ($(window).scrollTop() != scroll_to) {
+		$('html, body').stop().animate({
+			scrollTop: scroll_to
+		}, 0);
 	}
 }
 
@@ -10,78 +11,77 @@ function bar_progress(progress_line_object, direction) {
 	var number_of_steps = progress_line_object.data('number-of-steps');
 	var now_value = progress_line_object.data('now-value');
 	var new_value = 0;
-	if(direction == 'right') {
-		new_value = now_value + ( 100 / number_of_steps );
-	}
-	else if(direction == 'left') {
-		new_value = now_value - ( 100 / number_of_steps );
+	if (direction == 'right') {
+		new_value = now_value + (100 / number_of_steps);
+	} else if (direction == 'left') {
+		new_value = now_value - (100 / number_of_steps);
 	}
 	progress_line_object.attr('style', 'width: ' + new_value + '%;').data('now-value', new_value);
 }
 
-jQuery(document).ready(function() {
-	
-    /*
-        Fullscreen background
-    */
-    
-    $('#top-navbar-1').on('shown.bs.collapse', function(){
-    	$.backstretch("resize");
-    });
-    $('#top-navbar-1').on('hidden.bs.collapse', function(){
-    	$.backstretch("resize");
-    });
-    
-    /*
-        Form
-    */
-    $('.f1 fieldset:first').fadeIn('slow');
-    
-    $('.f1 input[type="text"], .f1 input[type="email"]').on('focus', function() {
-    	$(this).removeClass('input-error');
-    });
-    
-    // // next step
-    // $('.f1 .btn-next').on('click', function() {
-    // 	var parent_fieldset = $(this).parents('fieldset');
-    // 	var next_step = true;
-    // 	// navigation steps / progress steps
-    // 	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+jQuery(document).ready(function () {
+
+	/*
+	    Fullscreen background
+	*/
+
+	$('#top-navbar-1').on('shown.bs.collapse', function () {
+		$.backstretch("resize");
+	});
+	$('#top-navbar-1').on('hidden.bs.collapse', function () {
+		$.backstretch("resize");
+	});
+
+	/*
+	    Form
+	*/
+	$('.f1 fieldset:first').fadeIn('slow');
+
+	$('.f1 input[type="text"], .f1 input[type="email"]').on('focus', function () {
+		$(this).removeClass('input-error');
+	});
+
+	// // next step
+	// $('.f1 .btn-next').on('click', function() {
+	// 	var parent_fieldset = $(this).parents('fieldset');
+	// 	var next_step = true;
+	// 	// navigation steps / progress steps
+	// 	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
 	// 	var progress_line = $(this).parents('.f1').find('.f1-progress-line');
 	// 	var prev_icon = $(".f1-step.active .f1-step-icon");
-		
-    // 	// fields validation
-    // 	parent_fieldset.find('input[type="text"], input[type="email"]').each(function() {
-    // 		if( $(this).val() == "" ) {
-    // 			$(this).addClass('input-error');
-    // 			next_step = false;
-    // 		}
-    // 		else {
-    // 			$(this).removeClass('input-error');
-    // 		}
-    // 	});
-    // 	// fields validation
-    	
-    // 	if( next_step ) {
-    // 		parent_fieldset.fadeOut(400, function() {
-    // 			// change icons
+
+	// 	// fields validation
+	// 	parent_fieldset.find('input[type="text"], input[type="email"]').each(function() {
+	// 		if( $(this).val() == "" ) {
+	// 			$(this).addClass('input-error');
+	// 			next_step = false;
+	// 		}
+	// 		else {
+	// 			$(this).removeClass('input-error');
+	// 		}
+	// 	});
+	// 	// fields validation
+
+	// 	if( next_step ) {
+	// 		parent_fieldset.fadeOut(400, function() {
+	// 			// change icons
 	// 			current_active_step.removeClass('active').addClass('activated').next().addClass('active');
 	// 			//  replace previous icon with checkmark
 	// 			prev_icon.html("<i class='fa fa-check'></i>");
-    // 			// progress bar
-    // 			bar_progress(progress_line, 'right');
-    // 			// show next step
+	// 			// progress bar
+	// 			bar_progress(progress_line, 'right');
+	// 			// show next step
 	//     		$(this).next().fadeIn();
 	//     		// scroll window to beginning of the form
-    // 			scroll_to_class( $('.f1'), 20 );
+	// 			scroll_to_class( $('.f1'), 20 );
 	//     	});
-    // 	}
-    	
-    // });
-    
-    // // previous step
-    // $('.f1 .btn-previous').on('click', function() {
-    // 	// navigation steps / progress steps
+	// 	}
+
+	// });
+
+	// // previous step
+	// $('.f1 .btn-previous').on('click', function() {
+	// 	// navigation steps / progress steps
 	// 	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
 	// 	var progress_line = $(this).parents('.f1').find('.f1-progress-line');
 	// 	var step_num = current_active_step.data("id");
@@ -89,22 +89,22 @@ jQuery(document).ready(function() {
 	// 	var prev_icon = $(".f1-step.active .f1-step-icon");
 	// 	console.log("previous step number was: " + step_num);
 	// 	console.log("current step number: " + current_step_num);
-    	
-    // 	$(this).parents('fieldset').fadeOut(400, function() {
+
+	// 	$(this).parents('fieldset').fadeOut(400, function() {
 	// 		// change icons
 	// 		current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
 	// 		prev_icon.html(current_step_num + 1);
-    // 		// progress bar
-    // 		bar_progress(progress_line, 'left');
-    // 		// show previous step
-    // 		$(this).prev().fadeIn();
-    // 		// scroll window to beginning of the form
+	// 		// progress bar
+	// 		bar_progress(progress_line, 'left');
+	// 		// show previous step
+	// 		$(this).prev().fadeIn();
+	// 		// scroll window to beginning of the form
 	// 		scroll_to_class( $('.f1'), 20 );
-    // 	});
-    // });
-    
-    // // submit
-    // $('.f1').on('submit', function(e) {
+	// 	});
+	// });
+
+	// // submit
+	// $('.f1').on('submit', function(e) {
 	// 	e.preventDefault();
 	// 	var agentname = $("#agent_name").val();
 	// 	var agenttitle = $("#agent_title").val();
@@ -150,105 +150,105 @@ jQuery(document).ready(function() {
 	// });
 
 
-	
-/*
- Sign-Up Form
- */
 
-$('.unip-form form input[type="text"], .unip-form form input[type="email"]').on('focus', function () {
-    $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
-});
+	/*
+	 Sign-Up Form
+	 */
 
-// $('.unip-form form').submit(function (e) {
-//     e.preventDefault();
-//     $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
-//     var postdata = $('.unip-form form').serialize();
-//     $.ajax({
-//         type: 'POST',
-//         url: 'contact.php',
-//         data: postdata,
-//         dataType: 'json',
-//         success: function (json) {
-//             if (json.nameMessage != '') {
-//                 $('.unip-form form #agent_name').addClass('input-error');
-//             }
-//             if (json.titleeMessage != '') {
-//                 $('.unip-form form #agent_title').addClass('input-error');
-//             }
-//             if (json.phoneMessage != '') {
-//                 $('.unip-form form #agent_phone').addClass('input-error');
-//             }
-//             if (json.emailMessage != '') {
-//                 $('.unip-form form #agent_email').addClass('input-error');
-//             }
-//             if (json.priceMessage != '') {
-//                 $('.unip-form form #listing_price').addClass('input-error');
-//             }
-//             if (json.streetMessage != '') {
-//                 $('.unip-form form #listing_street').addClass('input-error');
-// 			}
-// 			if (json.cityMessage != '') {
-//                 $('.unip-form form #listing_city').addClass('input-error');
-//             }
-//             if (json.bedsMessage != '') {
-//                 $('.unip-form form #beds_total').addClass('input-error');
-//             }
-//             if (json.bathsMessage != '') {
-//                 $('.unip-form form #baths_total').addClass('input-error');
-//             }
-//             if (json.sqftMessage != '') {
-//                 $('.unip-form form #sqft_total').addClass('input-error');
-//             }
-//             if (json.lotMessage != '') {
-//                 $('.unip-form form #lot_total').addClass('input-error');
-//             }
-//             if (json.typeMessage != '') {
-//                 $('.unip-form form #listing_type').addClass('input-error');
-// 			}
-// 			if (json.yrbuiltMessage != '') {
-//                 $('.unip-form form #year_built').addClass('input-error');
-//             }
-//             if (json.descMessage != '') {
-//                 $('.unip-form form #listing_description').addClass('input-error');
-//             }
-//         }
-//     });
-// });
+	// $('.unip-form form input[type="text"], .unip-form form input[type="email"]').on('focus', function () {
+	//     $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
+	// });
+
+	// $('.unip-form form').submit(function (e) {
+	//     e.preventDefault();
+	//     $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
+	//     var postdata = $('.unip-form form').serialize();
+	//     $.ajax({
+	//         type: 'POST',
+	//         url: 'contact.php',
+	//         data: postdata,
+	//         dataType: 'json',
+	//         success: function (json) {
+	//             if (json.nameMessage != '') {
+	//                 $('.unip-form form #agent_name').addClass('input-error');
+	//             }
+	//             if (json.titleeMessage != '') {
+	//                 $('.unip-form form #agent_title').addClass('input-error');
+	//             }
+	//             if (json.phoneMessage != '') {
+	//                 $('.unip-form form #agent_phone').addClass('input-error');
+	//             }
+	//             if (json.emailMessage != '') {
+	//                 $('.unip-form form #agent_email').addClass('input-error');
+	//             }
+	//             if (json.priceMessage != '') {
+	//                 $('.unip-form form #listing_price').addClass('input-error');
+	//             }
+	//             if (json.streetMessage != '') {
+	//                 $('.unip-form form #listing_street').addClass('input-error');
+	// 			}
+	// 			if (json.cityMessage != '') {
+	//                 $('.unip-form form #listing_city').addClass('input-error');
+	//             }
+	//             if (json.bedsMessage != '') {
+	//                 $('.unip-form form #beds_total').addClass('input-error');
+	//             }
+	//             if (json.bathsMessage != '') {
+	//                 $('.unip-form form #baths_total').addClass('input-error');
+	//             }
+	//             if (json.sqftMessage != '') {
+	//                 $('.unip-form form #sqft_total').addClass('input-error');
+	//             }
+	//             if (json.lotMessage != '') {
+	//                 $('.unip-form form #lot_total').addClass('input-error');
+	//             }
+	//             if (json.typeMessage != '') {
+	//                 $('.unip-form form #listing_type').addClass('input-error');
+	// 			}
+	// 			if (json.yrbuiltMessage != '') {
+	//                 $('.unip-form form #year_built').addClass('input-error');
+	//             }
+	//             if (json.descMessage != '') {
+	//                 $('.unip-form form #listing_description').addClass('input-error');
+	//             }
+	//         }
+	//     });
+	// });
 
 
-	$(document).ready( function() {
-	
-	// Set input value on change and create fileselect event
-	$('.btn-upload :file').on('change', function () {
-		var input = $(this),
-			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-		input.trigger('fileselect', [label]);
-	});	
+	$(document).ready(function () {
 
-	// On fileselect look for closest input and set file name as value
-	$('.btn-upload :file').on('fileselect', function (event, label) {
+		// Set input value on change and create fileselect event
+		$('.btn-upload :file').on('change', function () {
+			var input = $(this),
+				label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+			input.trigger('fileselect', [label]);
+		});
 
-		var	inputClosest = $(this).closest('.row').find('input[type=text]'),
-			title = label;
+		// On fileselect look for closest input and set file name as value
+		$('.btn-upload :file').on('fileselect', function (event, label) {
 
-		if (inputClosest.length) {
-			inputClosest.val(title);
-		} else {
-			if (title) alert(title);
-		} 
-	});
+			var inputClosest = $(this).closest('.row').find('input[type=text]'),
+				title = label;
 
-		
+			if (inputClosest.length) {
+				inputClosest.val(title);
+			} else {
+				if (title) alert(title);
+			}
+		});
+
+
 		function readURL(input) {
-		    if (input.files && input.files[0]) {
-		        var reader = new FileReader();
-		        
-		        reader.onload = function (e) {
-		            $('#userimg').attr('src', e.target.result);
-		        }
-		        
-		        reader.readAsDataURL(input.files[0]);
-		    }
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#userimg').attr('src', e.target.result);
+				}
+
+				reader.readAsDataURL(input.files[0]);
+			}
 		}
 
 		// Read URL and display user logo image
@@ -265,47 +265,47 @@ $('.unip-form form input[type="text"], .unip-form form input[type="email"]').on(
 		}
 
 
-		$("#propimg0").change(function(){
-		    readURL(this);
-		}); 	
+		$("#propimg0").change(function () {
+			readURL(this);
+		});
 
-		
+
 		$("#propimg1").change(function () {
 			readURL2(this);
 		});
 	});
 
-	$('.btn-restart').click(function(e) {
+	$('.btn-restart').click(function (e) {
 
-		if(confirm('Do you want to reload this site? Changes you made may not be saved.')){
-			window.location.reload(); 
-		}
-		else {
+		if (confirm('Do you want to reload this site? Changes you made may not be saved.')) {
+			window.location.reload();
+		} else {
 			e.stopPropagation();
-			e.preventDefault(); 
+			e.preventDefault();
 			console.log("user refreshed cancelled!");
 		}
 	});
 
-	 // Referneces
+	// Referneces
 	var clearBn = $("#rmv-img1");
-		clearBn2 = $("#rmv-img2");
-		clearBn3 = $("#rmv-img3");
+	clearBn2 = $("#rmv-img2");
+	clearBn3 = $("#rmv-img3");
 
 	// Setup the clear functionality
-	clearBn.on("click", function(){
-	var control = $("#propimg1-name");
-	control.replaceWith( control.val('').clone( true ) );
+	clearBn.on("click", function () {
+		var control = $("#propimg1-name");
+		control.replaceWith(control.val('').clone(true));
 	});
 
-	clearBn2.on("click", function(){
-	var control2 = $("#propimg2-name");
-	control2.replaceWith( control2.val('').clone( true ) );
+	clearBn2.on("click", function () {
+		var control2 = $("#propimg2-name");
+		control2.replaceWith(control2.val('').clone(true));
 	});
 
-	clearBn3.on("click", function(){
-	var control3 = $("#propimg3-name");
-	control3.replaceWith( control3.val('').clone( true ) );
+	clearBn3.on("click", function () {
+		var control3 = $("#propimg3-name");
+		control3.replaceWith(control3.val('').clone(true));
 	});
+
 
 });
