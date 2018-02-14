@@ -178,8 +178,8 @@ $('.unip-form form input[type="text"], .unip-form form input[type="email"]').on(
                 }
             }
         });
-    });
-});
+	});
+	
 	$(document).ready( function() {
 	
 	// Set input value on change and create fileselect event
