@@ -159,6 +159,63 @@ $('.unip-form form input[type="text"], .unip-form form input[type="email"]').on(
     $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
 });
 
+// $('.unip-form form').submit(function (e) {
+//     e.preventDefault();
+//     $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
+//     var postdata = $('.unip-form form').serialize();
+//     $.ajax({
+//         type: 'POST',
+//         url: 'contact.php',
+//         data: postdata,
+//         dataType: 'json',
+//         success: function (json) {
+//             if (json.nameMessage != '') {
+//                 $('.unip-form form #agent_name').addClass('input-error');
+//             }
+//             if (json.titleeMessage != '') {
+//                 $('.unip-form form #agent_title').addClass('input-error');
+//             }
+//             if (json.phoneMessage != '') {
+//                 $('.unip-form form #agent_phone').addClass('input-error');
+//             }
+//             if (json.emailMessage != '') {
+//                 $('.unip-form form #agent_email').addClass('input-error');
+//             }
+//             if (json.priceMessage != '') {
+//                 $('.unip-form form #listing_price').addClass('input-error');
+//             }
+//             if (json.streetMessage != '') {
+//                 $('.unip-form form #listing_street').addClass('input-error');
+// 			}
+// 			if (json.cityMessage != '') {
+//                 $('.unip-form form #listing_city').addClass('input-error');
+//             }
+//             if (json.bedsMessage != '') {
+//                 $('.unip-form form #beds_total').addClass('input-error');
+//             }
+//             if (json.bathsMessage != '') {
+//                 $('.unip-form form #baths_total').addClass('input-error');
+//             }
+//             if (json.sqftMessage != '') {
+//                 $('.unip-form form #sqft_total').addClass('input-error');
+//             }
+//             if (json.lotMessage != '') {
+//                 $('.unip-form form #lot_total').addClass('input-error');
+//             }
+//             if (json.typeMessage != '') {
+//                 $('.unip-form form #listing_type').addClass('input-error');
+// 			}
+// 			if (json.yrbuiltMessage != '') {
+//                 $('.unip-form form #year_built').addClass('input-error');
+//             }
+//             if (json.descMessage != '') {
+//                 $('.unip-form form #listing_description').addClass('input-error');
+//             }
+//         }
+//     });
+// });
+
+
 	$(document).ready( function() {
 	
 	// Set input value on change and create fileselect event
