@@ -159,7 +159,7 @@ $('.unip-form form input[type="text"], .unip-form form input[type="email"]').on(
     $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
 });
 
-// $(function(){
+$(function(){
     $(".f1").submit(function(e){
         e.preventDefault();
         var href = $(this).attr("action");
@@ -178,8 +178,8 @@ $('.unip-form form input[type="text"], .unip-form form input[type="email"]').on(
                 }
             }
         });
-	});
-	
+    });
+});
 	$(document).ready( function() {
 	
 	// Set input value on change and create fileselect event
