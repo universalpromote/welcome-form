@@ -41,113 +41,180 @@ jQuery(document).ready(function() {
     	$(this).removeClass('input-error');
     });
     
-    // next step
-    $('.f1 .btn-next').on('click', function() {
-    	var parent_fieldset = $(this).parents('fieldset');
-    	var next_step = true;
-    	// navigation steps / progress steps
-    	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
-		var progress_line = $(this).parents('.f1').find('.f1-progress-line');
-		var prev_icon = $(".f1-step.active .f1-step-icon");
+    // // next step
+    // $('.f1 .btn-next').on('click', function() {
+    // 	var parent_fieldset = $(this).parents('fieldset');
+    // 	var next_step = true;
+    // 	// navigation steps / progress steps
+    // 	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+	// 	var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+	// 	var prev_icon = $(".f1-step.active .f1-step-icon");
 		
-    	// fields validation
-    	parent_fieldset.find('input[type="text"], input[type="email"]').each(function() {
-    		if( $(this).val() == "" ) {
-    			$(this).addClass('input-error');
-    			next_step = false;
-    		}
-    		else {
-    			$(this).removeClass('input-error');
-    		}
-    	});
-    	// fields validation
+    // 	// fields validation
+    // 	parent_fieldset.find('input[type="text"], input[type="email"]').each(function() {
+    // 		if( $(this).val() == "" ) {
+    // 			$(this).addClass('input-error');
+    // 			next_step = false;
+    // 		}
+    // 		else {
+    // 			$(this).removeClass('input-error');
+    // 		}
+    // 	});
+    // 	// fields validation
     	
-    	if( next_step ) {
-    		parent_fieldset.fadeOut(400, function() {
-    			// change icons
-				current_active_step.removeClass('active').addClass('activated').next().addClass('active');
-				//  replace previous icon with checkmark
-				prev_icon.html("<i class='fa fa-check'></i>");
-    			// progress bar
-    			bar_progress(progress_line, 'right');
-    			// show next step
-	    		$(this).next().fadeIn();
-	    		// scroll window to beginning of the form
-    			scroll_to_class( $('.f1'), 20 );
-	    	});
-    	}
+    // 	if( next_step ) {
+    // 		parent_fieldset.fadeOut(400, function() {
+    // 			// change icons
+	// 			current_active_step.removeClass('active').addClass('activated').next().addClass('active');
+	// 			//  replace previous icon with checkmark
+	// 			prev_icon.html("<i class='fa fa-check'></i>");
+    // 			// progress bar
+    // 			bar_progress(progress_line, 'right');
+    // 			// show next step
+	//     		$(this).next().fadeIn();
+	//     		// scroll window to beginning of the form
+    // 			scroll_to_class( $('.f1'), 20 );
+	//     	});
+    // 	}
     	
-    });
+    // });
     
-    // previous step
-    $('.f1 .btn-previous').on('click', function() {
-    	// navigation steps / progress steps
-		var current_active_step = $(this).parents('.f1').find('.f1-step.active');
-		var progress_line = $(this).parents('.f1').find('.f1-progress-line');
-		var step_num = current_active_step.data("id");
-		var current_step_num = current_active_step.prev().data("id");
-		var prev_icon = $(".f1-step.active .f1-step-icon");
-		console.log("previous step number was: " + step_num);
-		console.log("current step number: " + current_step_num);
+    // // previous step
+    // $('.f1 .btn-previous').on('click', function() {
+    // 	// navigation steps / progress steps
+	// 	var current_active_step = $(this).parents('.f1').find('.f1-step.active');
+	// 	var progress_line = $(this).parents('.f1').find('.f1-progress-line');
+	// 	var step_num = current_active_step.data("id");
+	// 	var current_step_num = current_active_step.prev().data("id");
+	// 	var prev_icon = $(".f1-step.active .f1-step-icon");
+	// 	console.log("previous step number was: " + step_num);
+	// 	console.log("current step number: " + current_step_num);
     	
-    	$(this).parents('fieldset').fadeOut(400, function() {
-			// change icons
-			current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
-			prev_icon.html(current_step_num + 1);
-    		// progress bar
-    		bar_progress(progress_line, 'left');
-    		// show previous step
-    		$(this).prev().fadeIn();
-    		// scroll window to beginning of the form
-			scroll_to_class( $('.f1'), 20 );
-    	});
-    });
+    // 	$(this).parents('fieldset').fadeOut(400, function() {
+	// 		// change icons
+	// 		current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
+	// 		prev_icon.html(current_step_num + 1);
+    // 		// progress bar
+    // 		bar_progress(progress_line, 'left');
+    // 		// show previous step
+    // 		$(this).prev().fadeIn();
+    // 		// scroll window to beginning of the form
+	// 		scroll_to_class( $('.f1'), 20 );
+    // 	});
+    // });
     
-    // submit
-    $('.f1').on('submit', function(e) {
-		e.preventDefault();
-		var agentname = $("#agent_name").val();
-		var agenttitle = $("#agent_title").val();
-		var agentphone = $("#agent_phone").val();
-		var agentemail = $("#agent_email").val();
-		var listingprice = $("#listing_price").val();
-		var listingstreet = $("#listing_street").val();
-		var listingcity = $("#listing_city").val();
-		var bedstotal = $("#beds_total").val();
-		var bathstotal = $("#baths_total").val();
-		var sqfttotal = $("#sqft_total").val();
-		var lottotal = $("#lot_total").val();
-		var listingtype = $("#listing_type").val();
-		var yearbuilt = $("#year_built").val();
-		var listingdescription = $("#listing_description").val();
-		// var message = $("#message").val();
-		// var contact = $("#contact").val();
-		// var name = $("#name").val();
-		// var email = $("#email").val();
-		// var message = $("#message").val();
+    // // submit
+    // $('.f1').on('submit', function(e) {
+	// 	e.preventDefault();
+	// 	var agentname = $("#agent_name").val();
+	// 	var agenttitle = $("#agent_title").val();
+	// 	var agentphone = $("#agent_phone").val();
+	// 	var agentemail = $("#agent_email").val();
+	// 	var listingprice = $("#listing_price").val();
+	// 	var listingstreet = $("#listing_street").val();
+	// 	var listingcity = $("#listing_city").val();
+	// 	var bedstotal = $("#beds_total").val();
+	// 	var bathstotal = $("#baths_total").val();
+	// 	var sqfttotal = $("#sqft_total").val();
+	// 	var lottotal = $("#lot_total").val();
+	// 	var listingtype = $("#listing_type").val();
+	// 	var yearbuilt = $("#year_built").val();
+	// 	var listingdescription = $("#listing_description").val();
+	// 	// var message = $("#message").val();
+	// 	// var contact = $("#contact").val();
+	// 	// var name = $("#name").val();
+	// 	// var email = $("#email").val();
+	// 	// var message = $("#message").val();
 
-		$.post("contact.php", {
-			username : agentname,
-			usertitle : agenttitle,
-			userphone : agentphone,
-			useremail : agentemail,
-			listprice : listingprice,
-			liststreet : listingstreet,
-			listcity : listingcity,
-			listbeds : bedstotal,
-			listbaths : bathstotal,
-			listsqft : sqfttotal,
-			listlot : lottotal,
-			listtype : listingtype,
-			listyrblt : yearbuilt,
-			listdesc : listingdescription
-			}, function(data) {
-			$("#returnmessage").append(data); // Append returned message to message paragraph.
-			if (data == "Your Query has been received, We will contact you soon.") {
-			$(this)[0].reset(); // To reset form fields on success.
+	// 	$.post("contact.php", {
+	// 		username : agentname,
+	// 		usertitle : agenttitle,
+	// 		userphone : agentphone,
+	// 		useremail : agentemail,
+	// 		listprice : listingprice,
+	// 		liststreet : listingstreet,
+	// 		listcity : listingcity,
+	// 		listbeds : bedstotal,
+	// 		listbaths : bathstotal,
+	// 		listsqft : sqfttotal,
+	// 		listlot : lottotal,
+	// 		listtype : listingtype,
+	// 		listyrblt : yearbuilt,
+	// 		listdesc : listingdescription
+	// 		}, function(data) {
+	// 		$("#returnmessage").append(data); // Append returned message to message paragraph.
+	// 		if (data == "Your Query has been received, We will contact you soon.") {
+	// 		$(this)[0].reset(); // To reset form fields on success.
+	// 		}
+	// 	});
+	// });
+
+
+	
+/*
+ Sign-Up Form
+ */
+
+$('.unip-form form input[type="text"], .unip-form form input[type="email"]').on('focus', function () {
+    $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
+});
+
+$('.unip-form form').submit(function (e) {
+    e.preventDefault();
+    $('.unip-form form input[type="text"], .unip-form form input[type="email"]').removeClass('input-error');
+    var postdata = $('.unip-form form').serialize();
+    $.ajax({
+        type: 'POST',
+        url: 'contact.php',
+        data: postdata,
+        dataType: 'json',
+        success: function (json) {
+            if (json.nameMessage != '') {
+                $('.unip-form form #agent_name').addClass('input-error');
+            }
+            if (json.titleeMessage != '') {
+                $('.unip-form form #agent_title').addClass('input-error');
+            }
+            if (json.phoneMessage != '') {
+                $('.unip-form form #agent_phone').addClass('input-error');
+            }
+            if (json.emailMessage != '') {
+                $('.unip-form form #agent_email').addClass('input-error');
+            }
+            if (json.priceMessage != '') {
+                $('.unip-form form #listing_price').addClass('input-error');
+            }
+            if (json.streetMessage != '') {
+                $('.unip-form form #listing_street').addClass('input-error');
 			}
-		});
-	});
+			if (json.cityMessage != '') {
+                $('.unip-form form #listing_city').addClass('input-error');
+            }
+            if (json.bedsMessage != '') {
+                $('.unip-form form #beds_total').addClass('input-error');
+            }
+            if (json.bathsMessage != '') {
+                $('.unip-form form #baths_total').addClass('input-error');
+            }
+            if (json.sqftMessage != '') {
+                $('.unip-form form #sqft_total').addClass('input-error');
+            }
+            if (json.lotMessage != '') {
+                $('.unip-form form #lot_total').addClass('input-error');
+            }
+            if (json.typeMessage != '') {
+                $('.unip-form form #listing_type').addClass('input-error');
+			}
+			if (json.yrbuiltMessage != '') {
+                $('.unip-form form #year_built').addClass('input-error');
+            }
+            if (json.descMessage != '') {
+                $('.unip-form form #listing_description').addClass('input-error');
+            }
+        }
+    });
+});
+
 
 	$(document).ready( function() {
 	
