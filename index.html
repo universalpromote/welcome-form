@@ -50,7 +50,7 @@
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-12 form-box">
                         <div class="unip-form">
-                    	<form role="form" method="post" action="https://formcarry.com/s/rJze3mGvG" method="POST" class="f1" enctype="multipart/form-data">
+                    	<form role="form" method="post" action="https://formspree.io/hassansalman8@gmail.com" method="POST" class="f1" enctype="multipart/form-data">
                                 <p id="returnmessage"></p>
                             <fieldset class="comFlyer-step1">
                                 <div class="aginfo-wrap">
@@ -164,7 +164,7 @@
                                                             <div class="col-xs-5">
                                                                 <img id="userimg" src="assets/img/default-pic.png" alt="User Default Picture">
                                                             </div>
-                                                            <input type="file" name="user_image" class="uploadimg-logo form-control" readonly="">
+                                                            <input type="text" name="user_image" class="uploadimg-logo form-control" readonly="">
                                                         </div>
                                             </div>
                                             <div class="col-md-6">
@@ -178,7 +178,7 @@
                                                                 <div class="col-xs-5">
                                                                     <img id="logoimg" src="assets/img/default-pic.png" alt="User Default Picture">
                                                                 </div>
-                                                                <input type="file" name="logo_image" class="uploadimg-logo form-control" readonly="">
+                                                                <input type="text" name="logo_image" class="uploadimg-logo form-control" readonly="">
                                                             </div>
                                                     </div>
                                         </div>
@@ -280,27 +280,7 @@
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
-        <script>
-                $(function(){
-                    $(".f1").submit(function(e){
-                        e.preventDefault();
-                        var href = $(this).attr("action");
-                        $.ajax({
-                            type: "POST",
-                            dataType: "json",
-                            url: href,
-                            data: $(this).serialize(),
-                            success: function(response){
-                                if(response.status == "success"){
-                                    alert("We received your submission, thank you!");
-                                }else{
-                                    alert("An error occured: " + response.message);
-                                }
-                            }
-                        });
-                    });
-                });
-                </script>
+
     </body>
 
 </html>
