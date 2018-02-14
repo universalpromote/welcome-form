@@ -23,8 +23,8 @@ echo "<span>* Please Fill Valid Contact No. *</span>";
 } else {
 $subject = $name;
 // To send HTML mail, the Content-type header must be set.
-$headers = 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-type: multipart/form-data; charset=UTF-8' . "\r\n";
+// $headers = 'MIME-Version: 1.0' . "\r\n";
+// $headers .= 'Content-type: multipart/form-data; charset=UTF-8' . "\r\n";
 $headers .= 'From:' . $email. "\r\n"; // Sender's Email
 $headers .= 'Cc:' . $email. "\r\n"; // Carbon copy to Sender
 $template = '<div style="padding:50px; color:white;">Hello ' . $name . ',<br/>'
