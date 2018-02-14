@@ -160,6 +160,7 @@ ul.navbar-nav {
 #userimg { max-width: 115px; margin-top: 10px; }
 .listing-images { margin:  50px 0; }
 .listing-details { max-width: 775px; margin: 0 auto; display: block; }
+.uploadimg-logo.form-control { opacity: 0; cursor: default; }
 /***** Commercial Flyer Step Three *****/
 
 .comFlyer-step3 { max-width: 775px; margin: 0 auto; }
